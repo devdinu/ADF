@@ -3,4 +3,9 @@
   <view id="main">
     <page>/main.jps</page>
   </view>
+  <managed-bean id="__1">
+    <managed-bean-name id="__2">BackingBean</managed-bean-name>
+    <managed-bean-class id="__4">BackingBean.BackingBeanClass</managed-bean-class>
+    <managed-bean-scope id="__3">backingBean</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

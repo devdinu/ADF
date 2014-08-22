@@ -12,14 +12,16 @@
                          id="pt1">
           <f:facet name="center">
             <af:panelFormLayout id="pfl1">
+              
               <af:inputText value="#{bindings.name.inputValue}"
                             label="#{bindings.name.hints.label}"
                             required="#{bindings.name.hints.mandatory}"
                             columns="#{bindings.name.hints.displayWidth}"
                             maximumLength="#{bindings.name.hints.precision}"
-                            shortDesc="#{bindings.name.hints.tooltip}" id="it1">
-                <f:validator binding="#{bindings.name.validator}"/>
+                            shortDesc="#{bindings.name.hints.tooltip}" id="it1"
+                            validator="#{backingBeanScope.BackingBean.it1_validator}">
               </af:inputText>
+              
               <f:facet name="footer">
                 <af:commandButton text="Submit" id="cb1"/>
               </f:facet>
@@ -35,4 +37,5 @@
       </af:form>
     </af:document>
   </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:BackingBean-->
 </jsp:root>

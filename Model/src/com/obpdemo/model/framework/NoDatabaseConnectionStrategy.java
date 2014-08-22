@@ -17,3 +17,4 @@ public class NoDatabaseConnectionStrategy extends DefaultConnectionStrategy {
         return super.createApplicationModule(env);
     }
 }
+    

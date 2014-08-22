@@ -1,0 +1,5 @@
+*.Ds_Store
+./**/*.class
+Model/classes/.data/
+Model/classes/com/obpdemo/model/
+
