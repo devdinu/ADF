@@ -23,7 +23,8 @@
               </af:inputText>
               
               <f:facet name="footer">
-                <af:commandButton text="Submit" id="cb1"/>
+                <af:commandButton text="Submit" id="cb1"
+                                  action="#{backingBeanScope.BackingBean.onSubmit}"/>
               </f:facet>
             </af:panelFormLayout>
           </f:facet>

@@ -2,4 +2,11 @@
 ./**/*.class
 Model/classes/.data/
 Model/classes/com/obpdemo/model/
+*.class
+*.DS_Store
+*.lck
+*.swp
+*.data/
+*.jpr
+.data/
 
