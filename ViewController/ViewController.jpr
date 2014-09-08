@@ -293,6 +293,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Jersey-bundle-1.18.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -318,10 +322,6 @@
          </hash>
          <hash>
             <value n="id" v="Connection Manager"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Jersey-bundle-1.18.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -424,6 +424,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Jersey-bundle-1.18.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -449,10 +453,6 @@
          </hash>
          <hash>
             <value n="id" v="Connection Manager"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Jersey-bundle-1.18.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

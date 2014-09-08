@@ -7,6 +7,6 @@ Model/classes/com/obpdemo/model/
 *.lck
 *.swp
 *.data/
-*.jpr
-.data/
 
+.idea/
+*.iml

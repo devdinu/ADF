@@ -9,6 +9,11 @@
               DataControl="HrWSModuleDataControl" id="PartyVO1Iterator"/>
   </executables>
   <bindings>
+    <attributeValues IterBinding="PartyVO1Iterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="PartyVO1Iterator" id="name">
       <AttrNames>
         <Item Value="name"/>

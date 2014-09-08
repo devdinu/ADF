@@ -23,7 +23,6 @@
   </Properties>
   <ViewAttribute
     Name="name"
-    IsUpdateable="false"
     IsSelected="false"
     IsQueriable="false"
     IsPersistent="false"
@@ -33,8 +32,17 @@
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="id"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.redsamurai.model.ModelBundle"/>
+      PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
 </ViewObject>

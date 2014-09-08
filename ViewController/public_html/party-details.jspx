@@ -13,23 +13,31 @@
           <f:facet name="center">
             <af:panelFormLayout id="pfl1">
               
-              <af:inputText value="#{bindings.name.inputValue}"
-                            label="#{bindings.name.hints.label}"
-                            required="#{bindings.name.hints.mandatory}"
-                            columns="#{bindings.name.hints.displayWidth}"
-                            maximumLength="#{bindings.name.hints.precision}"
-                            shortDesc="#{bindings.name.hints.tooltip}" id="it1"
-                            validator="#{backingBeanScope.BackingBean.it1_validator}">
-              </af:inputText>
-              
               <f:facet name="footer">
                 <af:commandButton text="Submit" id="cb1"
                                   action="#{backingBeanScope.BackingBean.onSubmit}"/>
               </f:facet>
+              <af:inputText label="Label 1" id="it1"
+                            binding="#{backingBeanScope.BackingBean.userId}"/>
             </af:panelFormLayout>
           </f:facet>
           <f:facet name="header"/>
-          <f:facet name="end"/>
+          <f:facet name="end">
+            <af:group id="g1">
+              <af:panelLabelAndMessage label="#{bindings.name.hints.label}"
+                                       id="plam1">
+                <af:outputText value="#{bindings.name.inputValue}" id="ot1"/>
+              </af:panelLabelAndMessage>
+              <af:inputText value="#{bindings.id.inputValue}"
+                            label="#{bindings.id.hints.label}"
+                            required="#{bindings.id.hints.mandatory}"
+                            columns="#{bindings.id.hints.displayWidth}"
+                            maximumLength="#{bindings.id.hints.precision}"
+                            shortDesc="#{bindings.id.hints.tooltip}" id="it3">
+                <f:validator binding="#{bindings.id.validator}"/>
+              </af:inputText>
+            </af:group>
+          </f:facet>
           <f:facet name="start"/>
           <f:facet name="branding"/>
           <f:facet name="copyright"/>
