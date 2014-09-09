@@ -54,7 +54,10 @@
               </f:facet>
             </af:panelFormLayout>
           </f:facet>
-          <f:facet name="start"/>
+          <f:facet name="start">
+            <af:commandButton text="commandButton 1" id="cb6"
+                              action="#{backingBeanScope.BackingBean.creatPost}"/>
+          </f:facet>
           <f:facet name="branding"/>
           <f:facet name="copyright"/>
           <f:facet name="status"/>
