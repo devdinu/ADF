@@ -12,6 +12,8 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 public class BackingBeanClass {
     private RichInputText userName;
     private String remoteUrl =
@@ -28,8 +30,7 @@ public class BackingBeanClass {
     }
 
     public String onSubmit() {
-        String result =
-            callGetMethod(remoteUrl, "application/json");
+        String result = callGetMethod(remoteUrl, "application/json");
         System.out.println(result);
         return "Success";
     }
@@ -40,21 +41,25 @@ public class BackingBeanClass {
 
         //calling get method
         System.out.println("checking ID##" + userId.getValue().toString());
-        
+
         MultivaluedMap queryParams = new MultivaluedMapImpl();
         queryParams.add("userId", userId.getValue().toString());
-        queryParams.add("userName","some");// userName.getValue().toString());
+        queryParams.add("userName",
+                        "some"); // userName.getValue().toString());
         ClientResponse response =
             webResource.queryParams(queryParams).get(ClientResponse.class);
-        System.out.println("Respoonse:**"+response.toString());
+        System.out.println("Respoonse:**" + response.toString());
         if (response.getStatus() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " +
                                        response.getStatus());
         }
         String output = response.getEntity(String.class);
-        System.out.println("Output from Server .... \n" + output);
-
-        return output;
+        System.out.println("Output from Server .... \n" +
+                output);
+        //ObjectMapper objMapper = new ObjectMapper();
+        // objMapper.readValue(output, User.class);
+        new Helper().showPartyDetails("PartyVO1Iterator", output);
+        return "StayOnTheSamePage";
     }
 
     private void callPostMethod(String serverUrl, String mediaType) {

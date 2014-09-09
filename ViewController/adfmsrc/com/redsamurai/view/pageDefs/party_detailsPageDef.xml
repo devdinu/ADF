@@ -6,18 +6,27 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="PartyVO1" RangeSize="25"
-              DataControl="HrWSModuleDataControl" id="PartyVO1Iterator"/>
+              DataControl="HrWSModuleDataControl" id="PartyVO1Iterator"
+              ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="PartyVO1Iterator" id="id">
-      <AttrNames>
-        <Item Value="id"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="PartyVO1Iterator" id="name">
       <AttrNames>
         <Item Value="name"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="PartyVO1Iterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PartyVO1Iterator" id="First" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="PartyVO1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PartyVO1Iterator" id="Next" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="PartyVO1Iterator" id="Last" RequiresUpdateModel="true"
+            Action="last"/>
   </bindings>
 </pageDefinition>
