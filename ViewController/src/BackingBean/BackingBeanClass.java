@@ -1,17 +1,22 @@
 package BackingBean;
 
+import com.obpdemo.model.Party;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import com.sun.jersey.api.client.*;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
+import java.io.IOException;
+
 import java.util.HashMap;
 
 import javax.ws.rs.core.MultivaluedMap;
-
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class BackingBeanClass {
@@ -19,6 +24,9 @@ public class BackingBeanClass {
     private String remoteUrl =
         "http://localhost:7101/WebService-WebserviceTest-context-root/jersey/user";
     private RichInputText userId;
+    private RichInputText newUserName;
+    private RichInputText newUserId;
+    Helper helper = new Helper();
 
     public BackingBeanClass() {
     }
@@ -58,15 +66,23 @@ public class BackingBeanClass {
                 output);
         //ObjectMapper objMapper = new ObjectMapper();
         // objMapper.readValue(output, User.class);
-        new Helper().showPartyDetails("PartyVO1Iterator", output);
+        helper.showPartyDetails("PartyVO1Iterator", output);
         return "StayOnTheSamePage";
     }
 
-    private void callPostMethod(String serverUrl, String mediaType) {
+    private void callPostMethod(String serverUrl) {
         Client client = Client.create();
         WebResource webResource = client.resource(remoteUrl);
-        String input = "{name:superman}";
-
+        ObjectMapper objMapper = new ObjectMapper();
+        Party party = new Party(newUserId.getValue().toString(), newUserName.getValue().toString());
+        String partyJson = null;
+        try {
+            partyJson = objMapper.writeValueAsString(party);
+            System.out.println(partyJson);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        webResource.type("application/json").post(ClientResponse.class, partyJson);
     }
 
     public void setUserName(RichInputText userName) {
@@ -87,5 +103,26 @@ public class BackingBeanClass {
 
     public RichInputText getUserId() {
         return userId;
+    }
+
+    public String createParty() {
+        callPostMethod(remoteUrl);
+        return "StayOnTheSamePage";
+    }
+
+    public void setNewUserName(RichInputText newUserName) {
+        this.newUserName = newUserName;
+    }
+
+    public RichInputText getNewUserName() {
+        return newUserName;
+    }
+
+    public void setNewUserId(RichInputText newUserId) {
+        this.newUserId = newUserId;
+    }
+
+    public RichInputText getNewUserId() {
+        return newUserId;
     }
 }

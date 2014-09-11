@@ -4,6 +4,13 @@ public class Party {
     private String name = "Suncorp Employee";
    private String id;
 
+   public Party(String id, String name){
+       this.name = name;
+       this.id = id;
+       }
+   
+   public Party(){}
+   
     public void setName(String name) {
         this.name = name;
     }

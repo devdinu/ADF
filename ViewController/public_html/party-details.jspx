@@ -14,7 +14,7 @@
             <af:panelFormLayout id="pfl1">
               
               <f:facet name="footer">
-                <af:commandButton text="Submit" id="cb1"
+                <af:commandButton text="Get Party" id="cb1"
                                   action="#{backingBeanScope.BackingBean.onSubmit}"/>
               </f:facet>
               <af:inputText label="User ID:" id="it1"
@@ -55,8 +55,33 @@
             </af:panelFormLayout>
           </f:facet>
           <f:facet name="start">
-            <af:commandButton text="commandButton 1" id="cb6"
-                              action="#{backingBeanScope.BackingBean.creatPost}"/>
+            <af:group id="g1">
+              <af:panelFormLayout id="pfl3">
+                <af:inputText value="#{bindings.name.inputValue}"
+                              label="#{bindings.name.hints.label}"
+                              required="#{bindings.name.hints.mandatory}"
+                              columns="#{bindings.name.hints.displayWidth}"
+                              maximumLength="#{bindings.name.hints.precision}"
+                              shortDesc="#{bindings.name.hints.tooltip}"
+                              id="it3"
+                              binding="#{backingBeanScope.BackingBean.newUserName}">
+                  <f:validator binding="#{bindings.name.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.id.inputValue}"
+                              label="#{bindings.id.hints.label}"
+                              required="#{bindings.id.hints.mandatory}"
+                              columns="#{bindings.id.hints.displayWidth}"
+                              maximumLength="#{bindings.id.hints.precision}"
+                              shortDesc="#{bindings.id.hints.tooltip}" id="it2"
+                              binding="#{backingBeanScope.BackingBean.newUserId}">
+                  <f:validator binding="#{bindings.id.validator}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                  <af:commandButton text="Create Party" id="cb6"
+                                    action="#{backingBeanScope.BackingBean.createParty}"/>
+                </f:facet>
+              </af:panelFormLayout>
+            </af:group>
           </f:facet>
           <f:facet name="branding"/>
           <f:facet name="copyright"/>
