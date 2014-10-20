@@ -56,7 +56,7 @@ public class BackingBeanClass {
                         "some"); // userName.getValue().toString());
         ClientResponse response =
             webResource.queryParams(queryParams).get(ClientResponse.class);
-        System.out.println("Respoonse:**" + response.toString());
+        System.out.println("Response:**" + response.toString());
         if (response.getStatus() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " +
                                        response.getStatus());
